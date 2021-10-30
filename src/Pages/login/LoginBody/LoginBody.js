@@ -5,8 +5,8 @@ import useAuth from "../../../Hooks/useAuth";
 import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 
 const LoginBody = () => {
-  const { signInUsingGoogle } = useAuth();
-  // const [isLoading, setIsLoading] = useState(true);
+  const { user, setUser, signInUsingGoogle } = useAuth();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -19,6 +19,24 @@ const LoginBody = () => {
   const handleLogin = () => {
     signInUsingGoogle().then((result) => {
       history.push(redirect_uri);
+      const email = result.user.email;
+      const name = result.user.displayName;
+      const photo = result.user.photoURL;
+      const newUser = { name, email, photo };
+      setError("");
+
+      fetch("https://cryptic-ridge-44622.herokuapp.com/users", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(newUser),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.insertedId) {
+            alert("Successfully added the user.");
+            // e.target.reset();
+          }
+        });
     });
   };
 
@@ -40,13 +58,28 @@ const LoginBody = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((result) => {
         history.push(redirect_uri);
-        const user = result.user;
-        console.log(user);
+        const email = result.user.email;
+        const name = result.user.displayName;
+        // const photo = result.user.photoURL;
+        const newUser = { name, email };
+        fetch("https://cryptic-ridge-44622.herokuapp.com/users", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(newUser),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.insertedId) {
+              alert("Successfully added the user.");
+              // e.target.reset();
+            }
+          });
         setError("");
       })
       .catch((error) => {
         setError(error.message);
       });
+    // handleAddUser();
   };
   return (
     <div className="container">

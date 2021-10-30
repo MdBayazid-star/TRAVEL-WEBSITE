@@ -8,7 +8,7 @@ const ServiceDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/services")
+    fetch("https://cryptic-ridge-44622.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
@@ -167,11 +167,7 @@ const ServiceDetails = () => {
                   {...register("Massage", {})}
                   placeholder="Massage"
                 />
-                <input
-                  type="submit"
-                  className="btn btn-travels"
-                  value="Submit"
-                />
+                <input type="submit" className="btn btn-travels" value="Book" />
               </form>
             </div>
           </div>

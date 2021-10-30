@@ -12,7 +12,7 @@ import ServiceDetails from "./Pages/Homes/Servicedetails/ServiceDetails";
 import AuthProvider from "./Context/AuthProvider";
 import PrivetRoute from "./Pages/login/PrivetRoute/PrivetRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard";
-import { StyledEngineProvider } from "@mui/styled-engine";
+import UserUpdate from "./Pages/userUpdate/UserUpdate";
 
 function App() {
   return (
@@ -39,9 +39,15 @@ function App() {
             <Route path="/login">
               <Login></Login>
             </Route>
-            <Route path="/dashboard">
+            <PrivetRoute path="/dashboard">
               <Dashboard></Dashboard>
-            </Route>
+            </PrivetRoute>
+            <PrivetRoute exact path="/users">
+              <Dashboard></Dashboard>
+            </PrivetRoute>
+            <PrivetRoute exact path="/users/:id">
+              <UserUpdate></UserUpdate>
+            </PrivetRoute>
             <PrivetRoute path="/service/:id">
               <ServiceDetails></ServiceDetails>
             </PrivetRoute>

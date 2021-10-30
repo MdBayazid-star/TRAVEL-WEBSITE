@@ -73,7 +73,7 @@ const Header = () => {
                       color: "#ff7c5b",
                     }}
                   >
-                    contact
+                    Contact
                   </NavLink>
                 </li>
                 <li className="nav-item">
