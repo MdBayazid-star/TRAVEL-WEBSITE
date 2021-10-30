@@ -1,0 +1,10 @@
+.Banner {
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.452),
+      rgba(255, 255, 255, 0.438)
+    ),
+    url(./../../../Images/Shared/Banner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

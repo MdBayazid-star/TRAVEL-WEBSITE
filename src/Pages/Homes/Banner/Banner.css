@@ -1,0 +1,68 @@
+.banter_Text {
+  background: rgba(247, 241, 236, 0.158);
+  padding: 30px;
+  z-index: 3;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.input-group {
+  z-index: 3;
+}
+.banter_Text p {
+  color: #fff;
+}
+.banner {
+  position: relative;
+  width: 100%;
+  height: 65vh;
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 0.575)
+    ),
+    url(./../../../Images/Banner/banner_img2.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+.banner .clouds {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.banner .clouds img {
+  position: absolute;
+  bottom: 0;
+  max-width: 100%;
+  animation: animate calc(8s * var(--i)) linear infinite;
+  -webkit-animation: animate calc(8s * var(--i)) linear infinite;
+}
+@keyframes animate {
+  0% {
+    transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+    -webkit-transform: translateX(100%);
+    -moz-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    -o-transform: translateX(100%);
+  }
+}
+section {
+  position: relative;
+  padding: 75px 100px;
+}
+section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}

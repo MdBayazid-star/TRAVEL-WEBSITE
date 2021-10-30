@@ -1,0 +1,182 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap");
+:root {
+  --pink-color: #ff7c5b;
+  --gray-color: gray;
+  --white-color: #fff;
+}
+*::selection {
+  background: var(--pink-color);
+  color: #fff;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  scroll-behavior: smooth;
+}
+.ts-1 {
+  font-size: 4rem !important;
+}
+.ts-2 {
+  font-size: 3rem !important;
+}
+.ts-3 {
+  font-size: 2.5rem !important;
+}
+.ts-4 {
+  font-size: 2rem !important;
+}
+.ts-5 {
+  font-size: 1.5rem !important;
+}
+.color-pink {
+  color: var(--pink-color) !important;
+}
+.text-gray {
+  color: var(--gray-color) !important;
+}
+.btn-travel {
+  font-size: 1.6rem;
+  position: relative;
+  margin: auto;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--pink-color) !important;
+  border-radius: 8px;
+  height: 2.8em;
+  width: 7em;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+  color: var(--pink-color) !important;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  line-height: 250%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  z-index: 4;
+}
+.btn-travel-bg {
+  height: 3em;
+  width: 9em;
+  font-size: 1.6rem;
+  position: relative;
+  margin: auto;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--pink-color) !important;
+  border-radius: 8px;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+  color: var(--pink-color) !important;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  line-height: 250%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  z-index: 4;
+}
+.btn-travels {
+  height: 3em;
+  width: 9em;
+  font-size: 1.6rem;
+  position: relative;
+  margin: auto;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid var(--pink-color) !important;
+  border-radius: 8px;
+  padding: 0;
+  outline: none;
+  overflow: hidden;
+  color: var(--pink-color) !important;
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+  line-height: 250%;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+  z-index: 4;
+}
+.btn-travel::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 17em;
+  height: 16em;
+  line-height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+.btn-travel-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  border-radius: 50%;
+  display: block;
+  width: 19em;
+  height: 18em;
+  line-height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+.btn-travel:hover {
+  color: #fff !important;
+}
+.btn-travel:hover::before {
+  box-shadow: inset 0 0 0 10em rgb(255, 124, 91) !important;
+}
+.sub-heading {
+  font-size: 2rem;
+  color: #ff7c5b;
+  text-align: center;
+  font-family: "Dancing Script", cursive;
+}
+.heading {
+  text-align: center;
+  padding: 20px 0;
+  margin: 10px 0;
+}
+.heading span {
+  text-transform: uppercase;
+  color: #ff7c5b !important;
+  font-size: 2.6rem;
+  background: rgba(255, 124, 91, 0.308);
+  color: var(--orange);
+  border-radius: 8px;
+  padding: 0.3rem 0.8rem 0.5rem 0.8rem;
+  margin: 0rem 0.2rem;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.heading span.space {
+  background: none;
+}
+.topFont {
+  font-size: 4rem !important;
+}
+.fontComfortaa {
+  font-family: "Comfortaa", cursive;
+}

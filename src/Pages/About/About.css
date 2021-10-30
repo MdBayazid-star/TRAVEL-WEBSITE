@@ -1,0 +1,121 @@
+.py-6 {
+  padding: 60px !important;
+}
+.AboutSliderImg {
+  position: relative;
+  border: 12px solid #fff;
+  margin-bottom: 20px;
+  width: 350px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.AboutSliderImg:hover {
+  border: 7px solid #ff7c5b;
+}
+.AboutBodyThree {
+  background: url(./../../Images/About/bgAbout.jpg);
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+.animated_btn {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  line-height: 90px;
+  display: inline-block;
+  text-align: center;
+  background: #ff3f3f;
+  color: #fff;
+  position: relative;
+  z-index: 1;
+}
+.animated_btn:hover {
+  color: #fff;
+}
+.animated_btn::after,
+.animated_btn::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  background: rgba(255, 63, 63, 0.8);
+  animation: ripple-1 2s infinite ease-in-out;
+  z-index: -1;
+}
+.animated_btn::after {
+  background: rgba(255, 63, 63, 0.6);
+  animation: ripple-2 2s infinite ease-in-out;
+  animation-delay: 0.5s;
+}
+@keyframes ripple-1 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+    -webkit-transform: scale(1.6);
+    -moz-transform: scale(1.6);
+    -ms-transform: scale(1.6);
+    -o-transform: scale(1.6);
+  }
+}
+@keyframes ripple-2 {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.9);
+    opacity: 0;
+    -webkit-transform: scale(1.9);
+    -moz-transform: scale(1.9);
+    -ms-transform: scale(1.9);
+    -o-transform: scale(1.9);
+  }
+}
+.cart {
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.social-icons {
+  margin: 20px 0;
+}
+.social-icons span {
+  padding: 17px;
+  color: rgb(128, 128, 128);
+  background: rgb(240, 241, 242);
+  margin: auto 15px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.social-icons span i {
+  font-size: 1.8rem;
+
+  /* text-align: center; */
+  line-height: 50px;
+}
+.social-icons span:hover {
+  background: #ff7c5b;
+  color: #fff;
+}

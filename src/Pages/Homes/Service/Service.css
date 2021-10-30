@@ -1,0 +1,28 @@
+.icon-Goldenrod {
+  color: #ffa500;
+}
+.service-cart {
+  overflow: hidden;
+  border-radius: 20px !important;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.cart-dl {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 6px;
+  background: #f5f7f8;
+  border-radius: 8px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.cart-dl p {
+  font-weight: 600;
+  font-size: 1.8rem;
+  color: #808080;
+}
