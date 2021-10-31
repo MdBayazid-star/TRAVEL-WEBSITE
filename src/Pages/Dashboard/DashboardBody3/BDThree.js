@@ -12,8 +12,6 @@ const Dashboard = () => {
       .then((data) => setData(data))
       .catch();
   }, []);
-  let count = 0;
-  //   const [booking, setBooking] = useState([]);
   useEffect(() => {
     fetch("https://cryptic-ridge-44622.herokuapp.com/usersServices")
       .then((res) => res.json())
@@ -162,16 +160,14 @@ const Dashboard = () => {
                   className="d-flex flex-column justify-content-center align-items-center"
                   style={{ width: "150px" }}
                 >
-                  <Link to={`/users/${userData._id}`}>
-                    <button
-                      onClick={() => handleDeleteUserService(userData._id)}
-                      type="button"
-                      className="btn btn-travel"
-                    >
-                      Delete
-                    </button>
-                  </Link>
-                  <Link to={`/users/${userData._id}`}>
+                  <button
+                    onClick={() => handleDeleteUserService(userData._id)}
+                    type="button"
+                    className="btn btn-travel"
+                  >
+                    Delete
+                  </button>
+                  <Link to={`/updateUsersServices/${userData._id}`}>
                     <button type="button" className="mt-2 btn btn-travel">
                       Update
                     </button>

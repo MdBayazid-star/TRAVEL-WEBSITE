@@ -14,6 +14,7 @@ import PrivetRoute from "./Pages/login/PrivetRoute/PrivetRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import UserUpdate from "./Pages/userUpdate/UserUpdate";
 import MyBooking from "./Pages/myBooking/MyBooking";
+import UpdateUserService from "./Pages/updateUserService/UpdateUserService";
 // import MyBooking from "./Pages/myBooking/MyBooking";
 
 function App() {
@@ -61,6 +62,9 @@ function App() {
             </PrivetRoute>
             <PrivetRoute exact path="/usersServices/:id">
               <MyBooking></MyBooking>
+            </PrivetRoute>
+            <PrivetRoute exact path="/updateUsersServices/:id">
+              <UpdateUserService></UpdateUserService>
             </PrivetRoute>
             <PrivetRoute path="/service/:id">
               <ServiceDetails></ServiceDetails>
