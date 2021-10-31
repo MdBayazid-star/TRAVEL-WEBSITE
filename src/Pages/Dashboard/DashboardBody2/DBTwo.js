@@ -21,6 +21,19 @@ const DBTwo = () => {
     <div>
       <div className="container">
         <div className="row">
+          <div className="title">
+            <h4 className="sub-heading">Added Services Info</h4>
+            <h3 class="heading">
+              <span>s</span>
+              <span>e</span>
+              <span>r</span>
+              <span>v</span>
+              <span>i</span>
+              <span>c</span>
+              <span>e</span>
+              <span>s</span>
+            </h3>
+          </div>
           <div className="col-lg-6"></div>
           <div className="col-lg-6 my-5">
             <div className="addService shadow">
@@ -89,11 +102,7 @@ const DBTwo = () => {
                   {...register("Location", {})}
                   placeholder="Location"
                 />
-                <input
-                  className="btn btn-travels"
-                  value="Submit"
-                  type="submit"
-                />
+                <input className="btn btn-travels" value="ADD" type="submit" />
               </form>
             </div>
           </div>

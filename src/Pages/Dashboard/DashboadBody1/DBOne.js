@@ -99,7 +99,18 @@ export default function StickyHeadTable() {
   };
   return (
     <div className="container ">
-      <div className="row ">
+      <div className="row my-5">
+        <div className="title">
+          <h4 className="sub-heading">Added Users Info</h4>
+          <h3 class="heading">
+            <span>u</span>
+            <span>s</span>
+            <span>e</span>
+            <span>a</span>
+            <span>r</span>
+            <span>s</span>
+          </h3>
+        </div>
         <div className="col-lg-8 my-5">
           <div className="mx-4">
             <Paper sx={{ width: "100%", overflow: "hidden" }}>
@@ -187,7 +198,7 @@ export default function StickyHeadTable() {
             <div className="row overflow-scroll" style={{ height: "400px" }}>
               {users.map((user) => (
                 <div className="d-flex justify-content-around align-items-center p-3 px-4 my-4 shadow borderRadius-4">
-                  <div className="col-lg-2">
+                  <div className="">
                     <div>
                       {user.photo ? (
                         <span>
@@ -208,7 +219,7 @@ export default function StickyHeadTable() {
                       )}
                     </div>
                   </div>
-                  <div className="col-lg-6">
+                  <div className="">
                     <div className="d-flex flex-column align-items-center">
                       {user.name ? (
                         <span className="fs-3">{user.name}</span>
@@ -222,7 +233,7 @@ export default function StickyHeadTable() {
                       )}
                     </div>
                   </div>
-                  <div className="col-lg-4 d-flex align-items-center justify-content-center">
+                  <div className=" d-flex align-items-center justify-content-center">
                     <Link to={`/users/${user._id}`}>
                       <button className="btn btn-travel me-2">Update</button>
                     </Link>

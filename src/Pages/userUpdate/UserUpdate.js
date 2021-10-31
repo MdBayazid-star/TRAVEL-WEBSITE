@@ -4,7 +4,6 @@ import { useParams } from "react-router";
 const UserUpdate = () => {
   const [user, setUser] = useState({});
   const { id } = useParams();
-
   useEffect(() => {
     const url = `http://localhost:5000/users/${id}`;
     fetch(url)
@@ -83,42 +82,23 @@ const UserUpdate = () => {
               <h3 className="text-center my-3 ts-2">Update An Account</h3>
               <div className="w-75 md-w-85 mx-auto my-5">
                 <form onSubmit={handleUpdateUser} className="">
-                  {/* <div className="mb-3"> */}
                   <div className="form-floating mb-3">
                     <input
-                      onBlur={handleImageChange}
+                      onChange={handleNameChange}
                       type="text"
                       className="form-control ts-5"
-                      id="floatingInput"
-                      placeholder="Image Url"
-                    />
-                    <label for="floatingInput" className="ts-5">
-                      Image Url
-                    </label>
-                  </div>
-                  <div className="form-floating mb-3">
-                    <input
-                      onBlur={handleNameChange}
-                      type="text"
-                      className="form-control ts-5"
-                      id="floatingInput"
                       placeholder="User Name"
-                    />
-                    <label for="floatingInput" className="ts-5">
-                      User Name
-                    </label>
+                      value={user.name || ""}
+                    ></input>
                   </div>
                   <div className="form-floating mb-3">
                     <input
-                      onBlur={handleEmailChange}
+                      onChange={handleEmailChange}
                       type="email"
                       className="form-control ts-5"
-                      id="floatingInput"
                       placeholder="Email Address"
+                      value={user.email || ""}
                     />
-                    <label for="floatingInput" className="ts-5">
-                      Email address
-                    </label>
                   </div>
                   <div className="text-center">
                     <input
@@ -132,7 +112,7 @@ const UserUpdate = () => {
             </div>
           </div>
         </div>
-        {/* <h2>Update: {user.name}</h2>
+        <h2>Update: {user.name}</h2>
         <p>
           <small>{id}</small>
         </p>
@@ -148,7 +128,7 @@ const UserUpdate = () => {
             value={user.email || ""}
           />
           <input type="submit" value="Update" />
-        </form> */}
+        </form>
       </div>
     </div>
   );

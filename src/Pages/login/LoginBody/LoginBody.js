@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router";
 import useAuth from "../../../Hooks/useAuth";
@@ -9,35 +9,56 @@ const LoginBody = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [Data, setData] = useState([]);
   const [error, setError] = useState("");
   const location = useLocation();
   const history = useHistory();
   const auth = getAuth();
 
   const redirect_uri = location.state?.from || "/home";
+  useEffect(() => {
+    fetch("http://localhost:5000/users")
+      .then((res) => res.json())
+      .then((data) => setData(data));
+  }, []);
 
   const handleLogin = () => {
-    signInUsingGoogle().then((result) => {
-      history.push(redirect_uri);
-      const email = result.user.email;
-      const name = result.user.displayName;
-      const photo = result.user.photoURL;
-      const newUser = { name, email, photo };
-      setError("");
+    signInUsingGoogle()
+      .then((result) => {
+        history.push(redirect_uri);
+        const email = result.user.email;
+        const name = result.user.displayName;
+        const photo = result.user.photoURL;
+        const newUser = { name, email, photo };
+        setError("");
 
-      fetch("https://cryptic-ridge-44622.herokuapp.com/users", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(newUser),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          if (data.insertedId) {
-            alert("Successfully added the user.");
-            // e.target.reset();
+        let flag = 0;
+        for (const singleData of Data) {
+          if (singleData.email === email) {
+            flag = 1;
+            return;
           }
-        });
-    });
+        }
+        if (flag === 0) {
+          fetch("https://cryptic-ridge-44622.herokuapp.com/users", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                alert("Successfully added the user.");
+                // e.target.reset();
+              }
+            });
+        }
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.email;
+      });
   };
 
   const handleEmail = (e) => {
@@ -62,18 +83,27 @@ const LoginBody = () => {
         const name = result.user.displayName;
         // const photo = result.user.photoURL;
         const newUser = { name, email };
-        fetch("https://cryptic-ridge-44622.herokuapp.com/users", {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(newUser),
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.insertedId) {
-              alert("Successfully added the user.");
-              // e.target.reset();
-            }
-          });
+        let flag = 0;
+        for (const singleData of Data) {
+          if (singleData.email === email) {
+            flag = 1;
+            return;
+          }
+        }
+        if (flag === 0) {
+          fetch("https://cryptic-ridge-44622.herokuapp.com/users", {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify(newUser),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.insertedId) {
+                alert("Successfully added the user.");
+                // e.target.reset();
+              }
+            });
+        }
         setError("");
       })
       .catch((error) => {
