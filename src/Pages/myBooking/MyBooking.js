@@ -28,7 +28,6 @@ const MyBooking = () => {
         });
     }
   };
-  console.log(booking.userServices);
   return (
     <div>
       <BookingBanner></BookingBanner>

@@ -56,6 +56,9 @@ function App() {
             <PrivetRoute exact path="/users/:id">
               <Dashboard></Dashboard>
             </PrivetRoute>
+            <PrivetRoute exact path="/updateUser/:id">
+              <UserUpdate></UserUpdate>
+            </PrivetRoute>
             <PrivetRoute exact path="/usersServices/:id">
               <MyBooking></MyBooking>
             </PrivetRoute>

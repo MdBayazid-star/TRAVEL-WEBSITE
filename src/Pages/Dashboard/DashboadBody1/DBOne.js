@@ -1,5 +1,7 @@
+import axios from "axios";
 import * as React from "react";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import userImg from "./../../../Images/Users/user.png";
 
@@ -27,6 +29,19 @@ const DBOne = () => {
         });
     }
   };
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
+    axios
+      .post("https://cryptic-ridge-44622.herokuapp.com/users", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("added Successfully");
+          reset();
+        }
+      });
+  };
+
   return (
     <div>
       <div className="">
@@ -42,11 +57,10 @@ const DBOne = () => {
               <span>s</span>
             </h3>
           </div>
-          <div className="container"></div>
           <div className="container">
             <div className="row">
-              <div className="col-lg-12">
-                <div className="col-lg-4 my-5 shadow borderRadius-4">
+              <div className="col-lg-4 col-md-12 col-12">
+                <div className=" my-5 shadow borderRadius-4">
                   <h1 className="text-center color-pink fw-bold mt-5">
                     Users {users.length}
                   </h1>
@@ -94,7 +108,7 @@ const DBOne = () => {
                             </div>
                           </div>
                           <div className=" d-flex align-items-center justify-content-center">
-                            <Link to={`/users/${user._id}`}>
+                            <Link to={`/updateUser/${user._id}`}>
                               <button className="btn btn-travel me-2">
                                 Update
                               </button>
@@ -108,6 +122,88 @@ const DBOne = () => {
                           </div>
                         </div>
                       ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="col-lg-8 col-md-12 col-12">
+                <div>
+                  <div className=" my-5">
+                    <div className="addService shadow">
+                      <h2 className="ts-3 color-pink text-center mb-4 fw-bold">
+                        Add A Service
+                      </h2>
+                      <form onSubmit={handleSubmit(onSubmit)}>
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("name", {
+                            required: true,
+                            maxLength: 20,
+                          })}
+                          placeholder="Name"
+                        />
+                        <textarea
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("descriptionFast")}
+                          placeholder="Description"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          type="number"
+                          {...register("price")}
+                          placeholder="price"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("imgUrl")}
+                          placeholder="image URL Main"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("gallery1")}
+                          placeholder="Extra Img One"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("gallery2")}
+                          placeholder="Extra Img Two"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("gallery3")}
+                          placeholder="Extra Img Three"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("gallery4")}
+                          placeholder="Extra Img Four"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("gallery5")}
+                          placeholder="Extra Img Five"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("days", {})}
+                          placeholder="Days"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("requireAge", {})}
+                          placeholder="Require Age"
+                        />
+                        <input
+                          className="ts-4 d-block w-100 my-3"
+                          {...register("Location", {})}
+                          placeholder="Location"
+                        />
+                        <input
+                          className="btn btn-travels"
+                          value="ADD"
+                          type="submit"
+                        />
+                      </form>
                     </div>
                   </div>
                 </div>
