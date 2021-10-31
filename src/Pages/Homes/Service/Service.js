@@ -19,7 +19,7 @@ const Service = (props) => {
   return (
     <div class="col-lg-4 col-md-6 col-12">
       <div class="card border-0 shadow service-cart h-100 m-3">
-        <img src={imgUrl} class="card-img-top" alt="..." />
+        <img src={imgUrl} class="card-img-top img-w" alt="..." />
         <div class="card-body px-5">
           <h5 className="d-flex">
             <Rating
@@ -52,7 +52,7 @@ const Service = (props) => {
             <button className="btn btn-travel">See More</button>
           </Link>
           <Link to="/">
-            <button className="btn btn-travel">Book</button>
+            <button className="btn btn-travel"> Liked </button>
           </Link>
         </div>
       </div>

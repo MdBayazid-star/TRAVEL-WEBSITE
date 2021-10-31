@@ -79,6 +79,17 @@ const Header = () => {
                 <li className="nav-item">
                   <NavLink
                     className="nav-link fw-bold"
+                    to="/mybooking"
+                    activeStyle={{
+                      color: "#ff7c5b",
+                    }}
+                  >
+                    My Order
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink
+                    className="nav-link fw-bold"
                     to="/dashboard"
                     activeStyle={{
                       color: "#ff7c5b",

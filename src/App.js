@@ -13,6 +13,8 @@ import AuthProvider from "./Context/AuthProvider";
 import PrivetRoute from "./Pages/login/PrivetRoute/PrivetRoute";
 import Dashboard from "./Pages/Dashboard/Dashboard";
 import UserUpdate from "./Pages/userUpdate/UserUpdate";
+import MyBooking from "./Pages/myBooking/MyBooking";
+// import MyBooking from "./Pages/myBooking/MyBooking";
 
 function App() {
   return (
@@ -45,8 +47,17 @@ function App() {
             <PrivetRoute exact path="/users">
               <Dashboard></Dashboard>
             </PrivetRoute>
+            <Route path="/mybooking">
+              <MyBooking></MyBooking>
+            </Route>
+            <PrivetRoute exact path="/usersServices">
+              <Dashboard></Dashboard>
+            </PrivetRoute>
             <PrivetRoute exact path="/users/:id">
-              <UserUpdate></UserUpdate>
+              <Dashboard></Dashboard>
+            </PrivetRoute>
+            <PrivetRoute exact path="/usersServices/:id">
+              <MyBooking></MyBooking>
             </PrivetRoute>
             <PrivetRoute path="/service/:id">
               <ServiceDetails></ServiceDetails>

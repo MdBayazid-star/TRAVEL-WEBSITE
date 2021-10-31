@@ -1,3 +1,5 @@
+import { Link } from "@mui/material";
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import Rating from "react-rating";
@@ -7,20 +9,35 @@ import "./ServiceDetails.css";
 const ServiceDetails = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
     fetch("https://cryptic-ridge-44622.herokuapp.com/services")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
+  useEffect(() => {
+    fetch("https://cryptic-ridge-44622.herokuapp.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   const ExactItem = data.filter((td) => td.id === id);
+  const ExactUsers = users.filter((td) => td.id === id);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { register, handleSubmit, reset } = useForm();
+
+  const onSubmit = (data) => {
+    data.userServices = ExactItem[0];
+    data.ExactUser = ExactUsers[0];
+    axios
+      .post("https://cryptic-ridge-44622.herokuapp.com/usersServices", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          alert("Order Accepted");
+          reset();
+        }
+      });
+  };
 
   return (
     <div>
@@ -133,27 +150,23 @@ const ServiceDetails = () => {
             </div>
           </div>
           <div className="col-lg-5 col-md-5 col-12 my-5">
-            <div className="shadow p-5 m-3">
+            <div className="shadow p-5 m-3 borderRadius-4">
               <h1>Book This Tour</h1>
               <form onSubmit={handleSubmit(onSubmit)}>
                 <input
                   className="ts-4 d-block w-100 my-3"
-                  {...register("firstName", { required: true, maxLength: 20 })}
-                  placeholder="Fast Name"
+                  {...register("name", {})}
+                  placeholder="Name"
                 />
-                {errors.firstName?.type === "required" &&
-                  "First name is required"}
                 <input
                   className="ts-4 d-block w-100 my-3"
-                  {...register("lastName", { pattern: /^[A-Za-z]+$/i })}
-                  placeholder="Last Name"
+                  {...register("city", {})}
+                  placeholder="City"
                 />
-                {errors.lastName && "Last name is required"}
-
                 <input
                   className="ts-4 d-block w-100 my-3"
                   type="number"
-                  {...register("age", { min: 18, max: 99 })}
+                  {...register("age", { min: 18, max: 99999999999 })}
                   placeholder="Phone"
                 />
                 <input
@@ -167,7 +180,15 @@ const ServiceDetails = () => {
                   {...register("Massage", {})}
                   placeholder="Massage"
                 />
-                <input type="submit" className="btn btn-travels" value="Book" />
+                <Link to="/mybooking">
+                  <button
+                    className="btn btn-travel"
+                    value="Submit"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </Link>
               </form>
             </div>
           </div>

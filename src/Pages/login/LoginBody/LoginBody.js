@@ -17,7 +17,7 @@ const LoginBody = () => {
 
   const redirect_uri = location.state?.from || "/home";
   useEffect(() => {
-    fetch("http://localhost:5000/users")
+    fetch("https://cryptic-ridge-44622.herokuapp.com/users")
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
