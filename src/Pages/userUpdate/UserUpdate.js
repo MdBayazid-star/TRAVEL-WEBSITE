@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
-
 const UserUpdate = () => {
   const [user, setUser] = useState({});
   const { id } = useParams();
@@ -10,7 +9,6 @@ const UserUpdate = () => {
       .then((res) => res.json())
       .then((data) => setUser(data));
   }, []);
-
   // Update User
   const handleImageChange = (e) => {
     const updatePhoto = e.target.value;
@@ -30,7 +28,6 @@ const UserUpdate = () => {
     };
     setUser(updatedUser);
   };
-
   const handleEmailChange = (e) => {
     const updatedEmail = e.target.value;
     const updatedUser = {

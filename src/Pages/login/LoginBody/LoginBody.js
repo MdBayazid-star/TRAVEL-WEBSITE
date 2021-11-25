@@ -5,7 +5,7 @@ import useAuth from "../../../Hooks/useAuth";
 import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 
 const LoginBody = () => {
-  const { user, setUser, signInUsingGoogle } = useAuth();
+  const { signInUsingGoogle } = useAuth();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -54,11 +54,7 @@ const LoginBody = () => {
             });
         }
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-      });
+      .catch((error) => {});
   };
 
   const handleEmail = (e) => {
@@ -81,7 +77,6 @@ const LoginBody = () => {
         history.push(redirect_uri);
         const email = result.user.email;
         const name = result.user.displayName;
-        // const photo = result.user.photoURL;
         const newUser = { name, email };
         let flag = 0;
         for (const singleData of Data) {
